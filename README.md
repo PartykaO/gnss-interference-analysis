@@ -67,3 +67,6 @@ Do not combine independent sessions when calibrating baselines. Original recordi
 ## Future work
 
 Validate on independent clean and interference receiver recordings with known session/episode boundaries; add separately tested adapters for RINEX and UBX exports; compare event sensitivity, false alarms per hour and resource use.
+## Resource-aware trust research prototype
+
+See [trust and real recording requirements](docs/recordings.md). The three-way trust algorithm lives in `src/gnss_interference/trust.py`; the Jammertest schema inspector is in `experiments/process_jammertest.py`. Deep verification is **not implemented** and must not be replaced by ground-truth labels. Raw recordings and receiver calibration are not present in this repository.
