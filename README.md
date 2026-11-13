@@ -70,3 +70,7 @@ Validate on independent clean and interference receiver recordings with known se
 ## Resource-aware trust research prototype
 
 See [trust and real recording requirements](docs/recordings.md). The three-way trust algorithm lives in `src/gnss_interference/trust.py`; the Jammertest schema inspector is in `experiments/process_jammertest.py`. Deep verification is **not implemented** and must not be replaced by ground-truth labels. Raw recordings and receiver calibration are not present in this repository.
+
+## Import an eight-channel GPS tracking workbook
+
+The memory-bounded importer can inspect and extract independent candidate receiver sessions from a large Excel export, without committing any measurement data. See [the Excel import guide](docs/gps_xlsx.md). It does **not** infer attack labels, calibrated AGC, satellite elevation or protection level, and does not claim validated detection performance.

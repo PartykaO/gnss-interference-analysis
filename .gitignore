@@ -9,3 +9,7 @@ data/private/
 *.ubx
 *.rnx
 *.zip
+# Large source measurement workbooks (keep on Drive or offline)
+*.xlsx
+*.xls
+*.tar.gz
