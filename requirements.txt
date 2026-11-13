@@ -1,0 +1,2 @@
+# Analysis uses only the Python standard library.
+# For optional plotting: pip install '.[plots]'
