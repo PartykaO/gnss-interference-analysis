@@ -34,3 +34,32 @@ missing features with constants.
 
 Do not compute scientific detection rates, delays, or false alarms per hour
 from these unlabeled candidate sessions.
+
+## Simplified 2D GPS feature-map export
+
+The `GPS_Data_Simplified_2D_Feature_Map.xlsx` export is in long format:
+one row per channel observation with the 14 columns
+`PRN,DO,PD,RX,TOW,CP,EC,LC,PC,PIP,PQP,TCD,CN0,Output`.
+
+```bash
+python -m gnss_interference.gps_2d inspect data/raw/GPS_Data_Simplified_2D_Feature_Map.xlsx
+python -m gnss_interference.gps_2d extract data/raw/GPS_Data_Simplified_2D_Feature_Map.xlsx --out data/private/gps_2d
+```
+
+This exporter groups channel observations by receiver-local RX time,
+then splits discontinuous sessions and downsamples positive C/N0 into
+one-second medians. It records the counts of each original `Output`
+value in `manifest.json`, **without mapping any number to attack types**.
+Counts are not validated event labels. A channel count is not necessarily
+a distinct-satellite count. The original `Output` column should be
+retained in the source workbook for future study after obtaining its
+label dictionary and independent provenance.
+
+The wide 3D workbook with an additional `Output` block can be processed
+by `gps_xlsx` for observables, but that module intentionally ignores
+the code block. Do not regard the modified wide workbook and the
+original tracking workbook as independent recordings.
+
+Both importers keep local output under `data/private/` (Git ignored).
+Never publish raw files or calculated CSV unless you have reviewed
+dataset ownership, permissions, privacy, and research reproducibility.
