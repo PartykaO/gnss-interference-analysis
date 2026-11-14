@@ -82,3 +82,7 @@ The additional `gps_2d` adapter reads the 14-column channel-level representation
 ## Real-only data processing
 
 See [the verified Drive source inventory and provenance rules](docs/real_data_inventory.md). It distinguishes authentic GPS receiver observations from simulated spoofing, and real measured CardRF UAV RF signals from GPS flight telemetry. `gnss_interference.cardrf` processes CardRF CSVs into local RF features; it is intentionally **not** a GNSS attack detector.
+
+## Generate controlled GNSS degradation on authentic measurements
+
+Use `python -m gnss_interference.augmentation data/private/gps_authentic --out data/private/gnss_augmentation` after extracting Aissou's authentic-source workbook. See [real-source augmentation protocol](docs/real_based_augmentation.md). Perturbations are explicitly simulated, with retained measured baselines, source hashes, fixed seeds, and injection-only ground truth. **These are not real attack or flight records.**
