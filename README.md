@@ -78,3 +78,7 @@ The memory-bounded importer can inspect and extract independent candidate receiv
 ### Simplified 2D GPS export
 
 The additional `gps_2d` adapter reads the 14-column channel-level representation and preserves opaque `Output` code counts in a local manifest. See [import guide](docs/gps_xlsx.md). No code value is assumed to be an attack label.
+
+## Real-only data processing
+
+See [the verified Drive source inventory and provenance rules](docs/real_data_inventory.md). It distinguishes authentic GPS receiver observations from simulated spoofing, and real measured CardRF UAV RF signals from GPS flight telemetry. `gnss_interference.cardrf` processes CardRF CSVs into local RF features; it is intentionally **not** a GNSS attack detector.
